@@ -158,7 +158,7 @@ std::string Mydatastore::viewCart(std::string username)
             // std::cout << "hi" << std::endl;
             for (std::vector<Product*>::iterator it = cart_[newUser].begin(); it != cart_[newUser].end(); ++it)
             {
-                message += (*it)->displayString();
+                message += (*it)->displayString() + "\n";
             }
         }
     }
