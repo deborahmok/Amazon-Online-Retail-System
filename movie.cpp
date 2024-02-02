@@ -44,7 +44,7 @@ std::string Movie::displayString() const
 {
     std::string display = name_ + "\n"
               + "Genre: " + genre_ + " Rating: " + rating_ + "\n"
-              + std::to_string(price_) + " " + std::to_string(qty_) + " left";
+              + std::to_string(price_) + " " + std::to_string(qty_) + " left.";
     return display;
 }
 
