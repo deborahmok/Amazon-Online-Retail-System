@@ -4,20 +4,18 @@
 
 using namespace std;
 
-Product::Product(const std::string category, const std::string name, double price, int qty) :
+Product::Product(const std::string category, const std::string name, double price, int qty) : 
     name_(name),
     price_(price),
     qty_(qty),
     category_(category)
 {
-
+    
 }
 
 Product::~Product()
 {
-
 }
-
 
 double Product::getPrice() const
 {
@@ -43,15 +41,15 @@ int Product::getQty() const
  * default implementation...can be overriden in a future
  * assignment
  */
-bool Product::isMatch(std::vector<std::string>& searchTerms) const
+bool Product::isMatch(std::vector<std::string> &searchTerms) const
 {
     return false;
 }
 
-void Product::dump(std::ostream& os) const
+void Product::dump(std::ostream &os) const
 {
-    os << category_ << "\n" << name_ << "\n" << price_ << "\n" << qty_ << endl;
+    os << category_ << "\n"
+       << name_ << "\n"
+       << price_ << "\n"
+       << qty_ << endl;
 }
-
-
-

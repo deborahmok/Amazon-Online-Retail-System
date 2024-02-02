@@ -6,7 +6,8 @@
 #include <vector>
 #include <algorithm>
 
-class Product {
+class Product
+{
 public:
     Product(const std::string category, const std::string name, double price, int qty);
     virtual ~Product();
@@ -19,7 +20,7 @@ public:
     /**
      * Allows for a more detailed search beyond simple keywords
      */
-    virtual bool isMatch(std::vector<std::string>& searchTerms) const;
+    virtual bool isMatch(std::vector<std::string> &searchTerms) const;
 
     /**
      * Returns a string to display the product info for hits of the search
@@ -29,7 +30,7 @@ public:
     /**
      * Outputs the product info in the database format
      */
-    virtual void dump(std::ostream& os) const;
+    virtual void dump(std::ostream &os) const;
 
     /**
      * Accessors and mutators
@@ -44,6 +45,5 @@ protected:
     double price_;
     int qty_;
     std::string category_;
-
 };
 #endif
