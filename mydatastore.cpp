@@ -20,7 +20,8 @@ void Mydatastore::addProduct(Product *p)
     // update the map here
     
     // Extract the keyword of product p here,
-    for(typename std::set<std::string>::iterator it = p->keywords().begin(); it != p->keywords().end(); ++it)
+    std::set<std::string> kWord =  p->keywords();
+    for(typename std::set<std::string>::iterator it = kWord.begin(); it != kWord.end(); ++it)
     {
         if(foundProduct_.find(*it) != foundProduct_.end()) //it exists
         {
@@ -56,7 +57,7 @@ std::vector<Product*> Mydatastore::search(std::vector<std::string> &terms, int t
     std::set<Product*> answer;
 
     // go through all of the terms one by one, you'll get bunch of sets of products.
-    for (int i = 0; i < terms.size(); ++i)
+    for (unsigned int i = 0; i < terms.size(); ++i)
     {
         std::set<Product *> one = foundProduct_[terms[i]];
         if (i == 0)
@@ -87,7 +88,7 @@ void Mydatastore::dump(std::ostream &ofile)
     {
         (*it)->dump(ofile);
     }
-    ofile << "</products" << std::endl << "<users>";
+    ofile << "</products>" << std::endl << "<users>" << std::endl;
     for(typename std::map<std::string, User*>::iterator it = user_.begin(); it != user_.end(); ++it)
     {
         (it->second)->dump(ofile);
@@ -95,7 +96,7 @@ void Mydatastore::dump(std::ostream &ofile)
     ofile << "</users>" << std::endl;
 }
 
-std::vector<Product*> Mydatastore::addCart(std::string username, Product* p)
+void Mydatastore::addCart(std::string username, Product* p)
 {
     if(user_.find(username) != user_.end())
     {
