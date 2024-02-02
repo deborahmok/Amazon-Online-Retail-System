@@ -8,7 +8,17 @@
 #include "util.h"
 
 
-Mydatastore::~Mydatastore() {}
+Mydatastore::~Mydatastore() 
+{
+    for(typename std::vector<Product*>::iterator it = product_.begin(); it != product_.end(); ++it)
+    {
+        delete *it;
+    }
+    for(typename std::map<std::string, User*>::iterator it = user_.begin(); it != user_.end(); ++it)
+    {
+        delete it->second;
+    }
+}
 
 /**
  * Adds a product to the data store
