@@ -44,7 +44,7 @@ public:
     void dump(std::ostream &ofile);
 
 
-    void addCart(std::string u, Product *p);
+    void addCart(std::string u, Product* p);
 
     std::string viewCart(std::string u);
 

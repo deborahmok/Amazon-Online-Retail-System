@@ -114,15 +114,24 @@ int main(int argc, char *argv[])
             else if (cmd == "ADD")
             {
                 string user;
-                int product_;
+                int hit_num;
                 if (!ss.fail())
                 {
                     ss >> user;
-                    ss >> product_;
-                    if (ss.fail())
+                    if (!ss.fail())
                     {
-                        cout << "Invalid request";
+                        ss >> hit_num;
+                        if (hit_num == 0)
+                        {
+                            cout << "Invalid Request";
+                        }
+                        // cout << user << endl;
+                        // cout << hit_num << endl;
+                        ds.addCart(user, hits[hit_num-1]); //hits is a vector of products, hence is okay to access directly
+
                     }
+                    else
+                        cout << "Invalid Request";
                 }
                 else
                 {
@@ -135,6 +144,23 @@ int main(int argc, char *argv[])
                 if (ss.fail())
                 {
                     cout << "Invalid username";
+                }
+                else
+                {
+                    ds.buyCart(user);
+                }
+            }
+            else if (cmd == "VIEWCART")
+            {
+                string user;
+                if (ss.fail())
+                {
+                    cout << "Invalid username";
+                }
+                else
+                {
+                    ss >> user;  
+                    cout << ds.viewCart(user) << endl;
                 }
             }
             else

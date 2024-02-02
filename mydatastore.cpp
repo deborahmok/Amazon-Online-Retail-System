@@ -119,6 +119,7 @@ void Mydatastore::dump(std::ostream &ofile)
 
 void Mydatastore::addCart(std::string username, Product* p)
 {
+    // std::cout << username << std::endl;
     if(user_.find(username) != user_.end())
     {
         User* newUser = user_.find(username) -> second;
@@ -132,6 +133,11 @@ void Mydatastore::addCart(std::string username, Product* p)
             temp.push_back(p);
             cart_[newUser] = temp;
         }
+        // std::cout << cart_[newUser].size() << std::endl;
+    }
+    else
+    {
+        std::cout << "Invalid request";
     }
 }
 
@@ -141,15 +147,18 @@ std::string Mydatastore::viewCart(std::string username)
     if(user_.find(username) != user_.end())
     {
         User* newUser = user_.find(username) -> second;
-        if (cart_.find(newUser) != cart_.end())
+        // std::cout << newUser->getName() << std::endl;
+        // std::cout << cart_.size() << std::endl;
+        if (cart_.find(newUser) == cart_.end())
         {
             message = "Invalid username";
         }
         else
         {
+            // std::cout << "hi" << std::endl;
             for (std::vector<Product*>::iterator it = cart_[newUser].begin(); it != cart_[newUser].end(); ++it)
             {
-                message = (*it)->displayString();
+                message += (*it)->displayString();
             }
         }
     }
