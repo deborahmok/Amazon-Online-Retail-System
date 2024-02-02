@@ -46,7 +46,7 @@ std::string Book::displayString() const
 {
     std::string display = name_ + "\n"
               + "Author: " + author_ + " ISBN: " + isbn_ + "\n"
-              + std::to_string(price_) + " " + std::to_string(qty_) + "left";
+              + std::to_string(price_) + " " + std::to_string(qty_) + " left";
     return display;
 }
 
