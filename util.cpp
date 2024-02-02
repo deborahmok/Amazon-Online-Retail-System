@@ -20,7 +20,7 @@ std::set<std::string> parseStringToWords(string rawWords) // string is a vector 
     string temp = "";
     while (!rawWords.empty())
     {
-        if (rawWords[0] != ' ' || !ispunct(rawWords[0]))
+        if (rawWords[0] != ' ' && !ispunct(rawWords[0]))
         { // when the current char is valid
             temp += rawWords[0];
             rawWords.erase(rawWords.begin());
@@ -33,10 +33,16 @@ std::set<std::string> parseStringToWords(string rawWords) // string is a vector 
         else if ((rawWords[0] == ' ' || ispunct(rawWords[0])) && temp.length() >= 2)
         { // when current char is invalid and temp satisfies requirement
             // upload temp as a keyword
-            convToLower(temp);
+            temp = convToLower(temp);
             tempset.insert(temp);
             temp = "";
         }
+    }
+    if(temp.length() >= 2)
+    {
+        temp = convToLower(temp);
+        tempset.insert(temp);
+        temp = "";
     }
     return tempset;
 }

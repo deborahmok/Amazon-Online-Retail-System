@@ -65,6 +65,17 @@ std::vector<Product*> Mydatastore::search(std::vector<std::string> &terms, int t
 {
     // you need a map that stores term -> results (set of products)
     std::set<Product*> answer;
+    // std::cout<<"begin priting" <<std::endl;
+    // for (std::map<std::string, std::set<Product*>>::iterator it = foundProduct_.begin(); it != foundProduct_.end(); ++it)
+    // { 
+    //     std::cout << it->first << ": ";
+    //     for (std::set<Product*>::iterator it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+    //     { 
+    //     std::cout << *it2 << " ";
+    //     }
+    //     std::cout<< std::endl;
+    // }
+    // std::cout << "end print" <<std::endl;
 
     // go through all of the terms one by one, you'll get bunch of sets of products.
     for (unsigned int i = 0; i < terms.size(); ++i)
