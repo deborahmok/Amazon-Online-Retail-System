@@ -155,10 +155,13 @@ std::string Mydatastore::viewCart(std::string username)
         }
         else
         {
+            int count = 1;
             // std::cout << "hi" << std::endl;
             for (std::vector<Product*>::iterator it = cart_[newUser].begin(); it != cart_[newUser].end(); ++it)
             {
+                message += "Item " + std::to_string(count) + "\n";
                 message += (*it)->displayString() + "\n";
+                count++;
             }
         }
     }
