@@ -173,6 +173,8 @@ void Mydatastore::buyCart(std::string username)
     if(user_.find(username) != user_.end())
     {
         User* newUser = user_.find(username) -> second;
+        std::vector<Product*> temp_Cart;
+        //create a new vector which has all the items that user isn't able to buy
         for (std::vector<Product*>::iterator it = cart_[newUser].begin(); it != cart_[newUser].end(); ++it)
         {
             Product* currentProduct = *it;
@@ -181,6 +183,16 @@ void Mydatastore::buyCart(std::string username)
                 currentProduct->subtractQty(1);
                 newUser->deductAmount(currentProduct->getPrice());
             }
+            else
+            {
+                //add to the vector if they can't afford
+                temp_Cart.push_back(currentProduct);
+            }
+        }
+        //set the cart of the user to the new vector
+        for (std::vector<Product*>::iterator it = temp_Cart.begin(); it != temp_Cart.end(); ++it)
+        {
+            cart_[newUser].push_back(*it);
         }
     }
 }
