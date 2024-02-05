@@ -162,6 +162,7 @@ int main(int argc, char *argv[])
             else if (cmd == "VIEWCART")
             {
                 string user;
+                ss >> user;
                 if (ss.fail())
                 {
                     cout << "Invalid username";
@@ -172,7 +173,6 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    ss >> user;  
                     cout << ds.viewCart(user) << endl;
                 }
             }
