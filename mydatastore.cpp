@@ -191,10 +191,7 @@ void Mydatastore::buyCart(std::string username)
             }
         }
         //set the cart of the user to the new vector
-        for (std::vector<Product*>::iterator it = temp_Cart.begin(); it != temp_Cart.end(); ++it)
-        {
-            cart_[newUser].push_back(*it);
-        }
+        cart_[newUser] = temp_Cart;
     }
 }
 
