@@ -121,14 +121,19 @@ int main(int argc, char *argv[])
                     if (!ss.fail())
                     {
                         ss >> hit_num;
-                        if (hit_num == 0)
+                        if (hit_num <= 0)
+                        {
+                            cout << "Invalid Request";
+                        }
+                        else if (hit_num-1 >= hits.size())
                         {
                             cout << "Invalid Request";
                         }
                         // cout << user << endl;
                         // cout << hit_num << endl;
-                        ds.addCart(user, hits[hit_num-1]); //hits is a vector of products, hence is okay to access directly
-
+                        else{
+                            ds.addCart(user, hits[hit_num-1]); //hits is a vector of products, hence is okay to access directly
+                        }
                     }
                     else
                         cout << "Invalid Request";
@@ -145,6 +150,10 @@ int main(int argc, char *argv[])
                 {
                     cout << "Invalid username";
                 }
+                else if (ds.checkUser(user))
+                {
+                    cout << "Invalid username";
+                }
                 else
                 {
                     ds.buyCart(user);
@@ -154,6 +163,10 @@ int main(int argc, char *argv[])
             {
                 string user;
                 if (ss.fail())
+                {
+                    cout << "Invalid username";
+                }
+                else if (ds.checkUser(user))
                 {
                     cout << "Invalid username";
                 }

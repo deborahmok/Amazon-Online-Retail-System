@@ -181,3 +181,15 @@ void Mydatastore::buyCart(std::string username)
         }
     }
 }
+
+bool Mydatastore::checkUser(std::string user)
+{
+    if(user_.find(user) != user_.end())
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}

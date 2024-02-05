@@ -50,6 +50,8 @@ public:
 
     void buyCart(std::string u);
 
+    bool checkUser(std::string user);
+
 private:
     std::vector<Product*> product_;
     std::map<std::string, User*> user_;
