@@ -15,11 +15,8 @@ std::set<T> setIntersection(std::set<T> &s1, std::set<T> &s2)
     std::set<T> intersection_;
     //iterating through sets, so it should be set type of iterator
     for (typename std::set<T>::iterator it = s1.begin(); it != s1.end(); ++it) //whenever we use type T you have to incude the 'typename' a syntax
-    //for(auto i : s1) //auto takes care of the increment and the type
-    //i takes in the value for s1 while the for loop runs
     {
         if (s2.find(*it) != s2.end())
-        // if (s2.find(i) != s2.end()) //i is already deferenced in this case, where i is a copy of the value
         { // if they find it
             intersection_.insert(*it);
         }
@@ -30,18 +27,15 @@ template <typename T>
 std::set<T> setUnion(std::set<T> &s1, std::set<T> &s2)
 {
     std::set<T> union_;
-    //for (auto i : s1)
     for(typename std::set<T>::iterator it = s1.begin(); it != s1.end(); ++it)
     {
         union_.insert(*it);
     }
-    //for (auto j : s2)
     for(typename std::set<T>::iterator it = s2.begin(); it != s2.end(); ++it)
     {
         union_.insert(*it);
     }
     return union_;
-    //auto it = computer recognizes the type that it returns with 
 }
 
 /***********************************************/

@@ -129,8 +129,6 @@ int main(int argc, char *argv[])
                         {
                             cout << "Invalid Request";
                         }
-                        // cout << user << endl;
-                        // cout << hit_num << endl;
                         else{
                             ds.addCart(user, hits[hit_num-1]); //hits is a vector of products, hence is okay to access directly
                         }
