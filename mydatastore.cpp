@@ -181,6 +181,7 @@ void Mydatastore::buyCart(std::string username)
             if(currentProduct->getQty() > 0 && (newUser->getBalance() >= currentProduct->getPrice()))
             {
                 currentProduct->subtractQty(1);
+                currentProduct--; //it should be removed from the cart
                 newUser->deductAmount(currentProduct->getPrice());
             }
             else
