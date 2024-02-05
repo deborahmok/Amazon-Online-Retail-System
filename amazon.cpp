@@ -146,6 +146,7 @@ int main(int argc, char *argv[])
             else if (cmd == "BUYCART")
             {
                 string user;
+                ss >> user;
                 if (ss.fail())
                 {
                     cout << "Invalid username";
